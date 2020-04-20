@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import shutil
 import mangadex
 import os
@@ -120,17 +121,17 @@ def make_mobis():
     print("[STATUS] Done creating mobi files")
 
 
-mangas = load_mangas(config_file)
-download_followed(mangas)
-update_file(config_file, mangas)
+if __name__ == "__main__":
+    mangas = load_mangas(config_file)
+    download_followed(mangas)
+    update_file(config_file, mangas)
 
+    try:
+        make_mobis()
+    except:
+        print("[ERROR] " + "Could not create mobi")
 
-try:
-    make_mobis()
-except:
-    print("[ERROR] " + "Could not create mobi")
-
-try:
-    shutil.rmtree(download_dir)
-except:
-    pass
+    try:
+        shutil.rmtree(download_dir)
+    except:
+        pass
