@@ -124,6 +124,7 @@ mangas = load_mangas(config_file)
 download_followed(mangas)
 update_file(config_file, mangas)
 
+
 try:
     make_mobis()
 except:
