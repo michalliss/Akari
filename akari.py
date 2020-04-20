@@ -122,6 +122,7 @@ def make_mobis():
 
 
 if __name__ == "__main__":
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     mangas = load_mangas(config_file)
     download_followed(mangas)
     update_file(config_file, mangas)
